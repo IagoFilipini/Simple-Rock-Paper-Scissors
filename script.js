@@ -1,3 +1,7 @@
+humanScore = 0;
+computerScore = 0;
+// console.log(`${humanScore}x${computerScore}`);
+
 function getHumanChoice() {
     return choice = prompt("Type rock, paper or scissors: ");
 }
@@ -13,5 +17,24 @@ function getComputerChoice(max) {
     }
 }
 
-console.log(getHumanChoice());
-console.log(getComputerChoice(3));
+function playRound(humanChoice, computerChoice) {
+    const human = humanChoice.toUpperCase();
+
+    console.log(human);
+    console.log(`Computer WIN`);
+    computerScore++;
+    console.log(`SCORE= HUMAN: ${humanScore} x COMPUTER: ${computerScore}`);
+
+}
+
+function playGame() {
+
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice(3);
+
+playRound(humanSelection, computerSelection);
+
+// console.log(getHumanChoice());
+// getComputerChoice(3);
