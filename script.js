@@ -6,24 +6,35 @@ function getHumanChoice() {
     return choice = prompt("Type rock, paper or scissors: ");
 }
 
-function getComputerChoice(max) {
-    let randomChoice = Math.floor(Math.random() * max);
+function getComputerChoice() {
+    let randomChoice = Math.floor(Math.random() * 3);
     if (randomChoice === 0) {
-        return console.log("ROCK");
+        return randomChoice = "rock";
     } else if (randomChoice === 1) {
-        return console.log("PAPER");
+        return randomChoice = "paper";
     } else {
-        return console.log("SCISSORS");
+        return randomChoice = "scissors";
     }
 }
 
 function playRound(humanChoice, computerChoice) {
-    const human = humanChoice.toUpperCase();
+    const human = humanChoice.toLowerCase();
 
-    console.log(human);
-    console.log(`Computer WIN`);
-    computerScore++;
-    console.log(`SCORE= HUMAN: ${humanScore} x COMPUTER: ${computerScore}`);
+    console.log(`human: ${human}`);
+    console.log(`computer: ${computerChoice}`);
+
+    if (human === "rock" && computerChoice === "paper" || human === "paper" && computerChoice === "scissors" || human === "scissors" && computerChoice === "rock") {
+        console.log("computer WIN");
+        computerScore++;
+        console.log(`human: ${humanScore} x computer: ${computerScore}`);
+    } else if (human === "rock" && computerChoice === "rock" || human === "paper" && computerChoice === "paper" || human === "scissors" && computerChoice === "scissors") {
+        console.log("TIE");
+        console.log(`human: ${humanScore} x computer: ${computerScore}`);
+    } else {
+        console.log("human WIN");
+        humanScore++;
+        console.log(`human: ${humanScore} x computer: ${computerScore}`);
+    }
 
 }
 
@@ -32,9 +43,13 @@ function playGame() {
 }
 
 const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice(3);
+const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
 
 // console.log(getHumanChoice());
 // getComputerChoice(3);
+
+
+
+//  || computerChoice === 1 && human === "scissors" || computerChoice === 2 && human === "rock"
