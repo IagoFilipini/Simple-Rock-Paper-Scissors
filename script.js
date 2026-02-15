@@ -1,3 +1,7 @@
+function getHumanChoice() {
+    return choice = prompt("Type rock, paper or scissors: ");
+}
+
 function getComputerChoice(max) {
     let randomChoice = Math.floor(Math.random() * max);
     if (randomChoice === 0) {
@@ -9,4 +13,5 @@ function getComputerChoice(max) {
     }
 }
 
+console.log(getHumanChoice());
 console.log(getComputerChoice(3));
